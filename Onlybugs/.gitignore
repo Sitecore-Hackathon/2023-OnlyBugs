@@ -19,7 +19,6 @@
 .DS_Store
 
 # local env files
-.env
 .env.local
 .env.*.local
 
@@ -27,7 +26,6 @@
 *.log*
 
 # sitecore
-Onlybugs.config
 scjssconfig.json
 *.deploysecret.config
 
