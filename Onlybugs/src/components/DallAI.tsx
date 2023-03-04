@@ -1,14 +1,29 @@
-import { Configuration, OpenAIApi } from "openai";
+import { Configuration, OpenAIApi } from 'openai';
 import { useState, useEffect } from 'react';
 import {
   Image as JssImage,
-  RichText as JssRichText,
-  Link as JssLink,
   ImageField,
   Field,
   LinkField,
-  useSitecoreContext,
+  // useSitecoreContext,
 } from '@sitecore-jss/sitecore-jss-nextjs';
+
+/********************************************************************
+ *                        OpenAI API Configs                         *
+ ********************************************************************/
+
+const apikey = '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';
+
+const configuration = new Configuration({
+  apiKey: apikey,
+  // organization: orgKey
+});
+
+const openai = new OpenAIApi(configuration);
+
+/********************************************************************
+ *                     SITECORE Component Fields                     *
+ ********************************************************************/
 
 interface Fields {
   Search: Field<string>;
@@ -20,21 +35,14 @@ interface Fields {
 type DallAIProps = {
   params: { [key: string]: string };
   fields: Fields;
-}
+  rendering: { [key: string]: string };
+};
 
-//********************************************************
+/********************************************************************
+ *                   OpenAI DALL-E Image Generator                   *
+ ********************************************************************/
 
-const apikey = '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';
-const orgKey = 'org-ZnjAnbVGYPu1gyo4z6HncZVo';
-
-const configuration = new Configuration({
-    apiKey: apikey,
-    organization: orgKey
-});
-const openai = new OpenAIApi(configuration);
-
-const generateImages = async(prompt: string) => {
-
+const imageGenerator = async (prompt: string) => {
   // Make the request to the DALL-E API using the openai library
   const response = await openai.createImage({
     prompt: prompt,
@@ -42,47 +50,58 @@ const generateImages = async(prompt: string) => {
     size: '512x512',
   });
 
-  console.log(response.data.data[0].url);
-
   return response.data.data[0].url ?? '';
-}
+};
 
-const ImageGenerated = (props: DallAIProps): JSX.Element => {
+/********************************************************************
+ *                        SITECORE Component                         *
+ ********************************************************************/
 
+const ImageAIGeneratedComponent = (props: DallAIProps): JSX.Element => {
   const [imageUrl, setImageUrl] = useState<string>('');
-
-  useEffect(() => {
-    const getImageUrl = async () => {
-      const url = await generateImages(props.fields.Search.value ?? 'random');
-      setImageUrl(url);
-    };
-    getImageUrl();
-  }, [props.fields.Search.value]);
-
-  const { sitecoreContext } = useSitecoreContext();
-  let _src: string = '';
-
-  generateImages(props.fields.Search.value).then((data) => {
-    _src = data ?? '';
-  });
-
-  const ImageDefault = () => <JssImage field={props.fields.Image} />;
+  const id = props.rendering.uid;
+  // const { sitecoreContext } = useSitecoreContext();
+  const ImageDefault = () => <JssImage field={props.fields?.Image} src={imageUrl} />;
 
   if (props.fields) {
+    const getImageUrl = async () => {
+      const url = await imageGenerator(props.fields.Search.value ?? 'random');
+      setImageUrl(url);
+      
+      props.fields.Search.value == 'random' ? sessionStorage.setItem('generatedUrl-random', url) : sessionStorage.setItem(`generatedUrl-${id}`, url);
+    };
 
-    const Image = () => <JssImage field={props.fields.Image} />;
-    const id = props.params.RenderingIdentifier;
+    useEffect(() => {
+      const generatedUrl = props.fields.Search.value == 'random' ? sessionStorage.getItem('generatedUrl-random') : sessionStorage.getItem(`generatedUrl-${id}`);
+      const p = sessionStorage.getItem(`prompt-${id}`);
+
+      if (props.fields.Search.value == p && generatedUrl) {
+        setImageUrl(generatedUrl);
+      }
+
+      if (props.fields.Search.value != p) {
+        getImageUrl();
+        sessionStorage.setItem(`prompt-${id}`, props.fields.Search.value);
+      }
+
+      if (props.fields?.Search.value != p && generatedUrl) {
+        setImageUrl(generatedUrl);
+      }
+    }, []);
+
+    // Default Image Component
+
+    const Image = () => <JssImage field={props.fields.Image} src={imageUrl} />;
+    // const id = props.params.RenderingIdentifier;
+
+    if (props.fields.Image.value) {
+      props.fields.Image.value.src = imageUrl;
+    }
 
     return (
       <div className={`component image ${props.params.styles}`} id={id ?? undefined}>
-        <div className='component-content'>
-        {sitecoreContext.pageState === 'edit' ? (
-            <Image />
-          ) : (
-            <div>
-              {imageUrl && <img src={imageUrl} alt="Generated Image" />}
-            </div>
-          )}
+        <div className="component-content">
+          <Image />
         </div>
       </div>
     );
@@ -91,4 +110,4 @@ const ImageGenerated = (props: DallAIProps): JSX.Element => {
   return <ImageDefault />;
 };
 
-export default ImageGenerated;
+export default ImageAIGeneratedComponent;
