@@ -142,7 +142,7 @@ for example:
 
 ![blue apple localhost](docs/images/blueapple.png?raw=true "blue apple localhost")
 
-- 
+- Also
 
 
 ![localhost](docs/images/localhost.png?raw=true "localhost")
