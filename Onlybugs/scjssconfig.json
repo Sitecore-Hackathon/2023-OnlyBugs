@@ -1,0 +1,9 @@
+{
+  "sitecore": {
+    "instancePath": "C:\\inetpub\\wwwroot\\onlybugs.localcm.dev.local",
+    "apiKey": "{937A60F4-3C7C-4D05-8455-E8A96E94804A}",
+    "deploySecret": "puscywvm41lugx4r5207gph8nocshypr23ala9m40dd",
+    "deployUrl": "https://onlybugs.localcm.dev.local/sitecore/api/jss/import",
+    "layoutServiceHost": "https://onlybugs.localcm.dev.local/"
+  }
+}

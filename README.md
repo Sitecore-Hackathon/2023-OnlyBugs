@@ -27,7 +27,10 @@ As future work the module can be extended to support CDN services and store the 
 
 ## Video link
 
-⟹ [Replace this Video link](#video-link)
+[Part One](https://www.loom.com/share/5e546a555dfa48b5ac14cd97985134f8)
+
+[Part two](https://www.loom.com/share/462c225dd79b401bb7afcaa21d107dc5)
+
 
 
 
