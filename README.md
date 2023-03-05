@@ -6,17 +6,17 @@
   
 # Hackathon Submission Entry form
 
-
-You can find a very good reference to Github flavoured markdown reference in [this cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet). If you want something a bit more WYSIWYG for editing then could use [StackEdit](https://stackedit.io/app) which provides a more user friendly interface for generating the Markdown code. Those of you who are [VS Code fans](https://code.visualstudio.com/docs/languages/markdown#_markdown-preview) can edit/preview directly in that interface too.
-
 ## Team name
 ⟹ OnlyBugs
+Iñaki Manosalvas
+Erick Peñafiel
+Cesar Yanez
 
 ## Category
 ⟹ Best enhancement to SXA Headless
 
 ## Description
-⟹ Our module is called AI Image. The purpose is obtain images from Open AI image generator to be included on a Image rendering type control.
+Our module is called AI Image - DallAI. The purpose is obtain images from Open AI image generator to be included on a Image rendering type control.
 
 The module is the entry point to extend the toolbox and add more AI options such as ChatGPT to text generation.
 
@@ -26,15 +26,12 @@ As future work the module can be extended to support CDN services and store the 
   
 
 ## Video link
-⟹ Provide a video highlighing your Hackathon module submission and provide a link to the video. You can use any video hosting, file share or even upload the video to this repository. _Just remember to update the link below_
 
 ⟹ [Replace this Video link](#video-link)
 
 
 
 ## Pre-requisites and Dependencies
-
-⟹ Does your module rely on other Sitecore modules or frameworks?
 
 - NodeJS
 - npm 
@@ -43,21 +40,6 @@ As future work the module can be extended to support CDN services and store the 
 
 
 ## Installation instructions
-⟹ Write a short clear step-wise instruction on how to install your module.  
-
-> _A simple well-described installation process is required to win the Hackathon._  
-> Feel free to use any of the following tools/formats as part of the installation:
-> - Sitecore Package files
-> - Docker image builds
-> - Sitecore CLI
-> - msbuild
-> - npm / yarn
-> 
-> _Do not use_
-> - TDS
-> - Unicorn
- 
-for example:
 
 1. Install Sitecore 10.3 using Graphical setup for XM scaled. Make sure to install "Sitecore Experience Acelerator (SXA)" on optional modules.
 2. Use Sitecore Installation wizard to install the following packages
@@ -126,28 +108,21 @@ for example:
 
 ![SXA Content editor](docs/images/ced.png?raw=true "SXA Content editor")
 
-
-
-![AIImage control](docs/images/AIImage.png?raw=true "AIImage control")
+- Drag and drop the DallAI control to the page, after that you can select the item associated with the module
 
 ![Asociate content](docs/images/asocont.png?raw=true "Asociate content")
 
-
-
-
-![txt blue apple](docs/images/txtblueapple.png?raw=true "txt blue apple")
-
-
+- You can edit the fiel Search and add your search terms / keywords
 ![blue apple content editor](docs/images/blueapplerequest.png?raw=true "blue apple content editor")
+
+- After some time you will see the generated image
 
 ![blue apple localhost](docs/images/blueapple.png?raw=true "blue apple localhost")
 
-- Also
 
+- You can add as many controls you want and have separated search terms as you can see on the following image
 
 ![localhost](docs/images/localhost.png?raw=true "localhost")
-
-⟹ Provide documentation about your module, how do the users use your module, where are things located, what do the icons mean, are there any secret shortcuts etc.
 
 
 
@@ -157,3 +132,4 @@ for example:
 - If needed please clear your browser cache 
 
 
+Thank You!!!
