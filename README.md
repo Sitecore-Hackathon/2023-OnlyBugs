@@ -81,7 +81,7 @@ As future work the module can be extended to support CDN services and store the 
 
 11. run the following command to see the site on http://localhost:3000
     > jss start:connected
-12. Install the following sitecore package
+12. Install the sitecore package located at ..\2023-OnlyBugs\docs
 
 
 
