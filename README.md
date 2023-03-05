@@ -118,21 +118,42 @@ for example:
 
 ## Usage instructions
 
+- Make sure the localhost site is up and running using :
+  >jss start:connected
+- Open Sitecore and navigate to the OnlyBugs tenant, select the home item and open Experience Editor
+
+![Tenant tree](docs/images/sctree.png?raw=true "tenant tree")
+
+![SXA Content editor](docs/images/ced.png?raw=true "SXA Content editor")
+
+
+
+![AIImage control](docs/images/AIImage.png?raw=true "AIImage control")
+
+![Asociate content](docs/images/asocont.png?raw=true "Asociate content")
+
+
+
+
+![txt blue apple](docs/images/txtblueapple.png?raw=true "txt blue apple")
+
+
+![blue apple content editor](docs/images/blueapplerequest.png?raw=true "blue apple content editor")
+
+![blue apple localhost](docs/images/blueapple.png?raw=true "blue apple localhost")
+
+- 
+
+
+![localhost](docs/images/localhost.png?raw=true "localhost")
 
 ⟹ Provide documentation about your module, how do the users use your module, where are things located, what do the icons mean, are there any secret shortcuts etc.
 
-Include screenshots where necessary. You can add images to the `./images` folder and then link to them from your documentation:
 
-![Hackathon Logo](docs/images/hackathon.png?raw=true "Hackathon Logo")
-
-You can embed images of different formats too:
-
-![Deal With It](docs/images/deal-with-it.gif?raw=true "Deal With It")
-
-And you can embed external images too:
-
-![Random](https://thiscatdoesnotexist.com/)
 
 ## Comments
-If you'd like to make additional comments that is important for your module entry..
+- We recommed test it on incognito window/tab to see the change of the images each time you reload.
+- Also the module can take some time to show images due this is a async method and the time varies by the amount of the request / keywords.
+- If needed please clear your browser cache 
+
 
