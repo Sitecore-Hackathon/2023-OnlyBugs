@@ -96,6 +96,8 @@ As future work the module can be extended to support CDN services and store the 
 	>					<origin>http://localhost:3000</origin>
   >     </allowedOrigins>
 
+- Update the variable apikey wiht a new generated key if you are seeing 401 forbidden error.
+
 
 
 ## Usage instructions
@@ -130,6 +132,7 @@ As future work the module can be extended to support CDN services and store the 
 - We recommed test it on incognito window/tab to see the change of the images each time you reload.
 - Also the module can take some time to show images due this is a async method and the time varies by the amount of the request / keywords.
 - If needed please clear your browser cache 
+- We are using OpenAI free tier so the keys can expire really quick you can generate a new key and replace it on the file DallAI.tsx
 
 
 Thank You!!!

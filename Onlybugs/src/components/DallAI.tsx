@@ -12,7 +12,7 @@ import {
  *                        OpenAI API Configs                         *
  ********************************************************************/
 
-const apikey = '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';
+const apikey = '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';
 
 const configuration = new Configuration({
   apiKey: apikey,
